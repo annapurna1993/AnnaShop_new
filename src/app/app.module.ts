@@ -1,3 +1,5 @@
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { CategoryService } from './category.service';
 
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
@@ -15,7 +17,6 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 import { getAnalytics, provideAnalytics } from '@angular/fire/analytics'; 
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
-
 import { RouterModule } from '@angular/router';  
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -27,7 +28,7 @@ import { CheckOutComponent } from './check-out/check-out.component';
 import { NewproductComponent } from './newproduct/newproduct.component';
 @NgModule({
   declarations: [        
-    AppComponent, BsNavbarComponent, HomeComponent, ShoppingCartComponent, NewproductComponent
+    AppComponent, BsNavbarComponent, HomeComponent, ShoppingCartComponent, NewproductComponent, AdminProductsComponent
   ],
   imports: [ 
     provideFirestore(() => getFirestore()),  
@@ -38,6 +39,7 @@ import { NewproductComponent } from './newproduct/newproduct.component';
     BrowserModule,  
     AngularFireAuthModule,
     AngularFireModule,
+    AngularFireDatabase,
     NgbModule,
     RouterModule.forRoot([
       {path:'', component: HomeComponent}, 
@@ -52,7 +54,9 @@ import { NewproductComponent } from './newproduct/newproduct.component';
       {path:'admin/orders', component: AdminOrdersComponent}
     ])
   ],  
-  providers: [],  
+  providers: [
+    CategoryService
+  ],  
   bootstrap: [AppComponent]  
  })    
 export class AppModule { }

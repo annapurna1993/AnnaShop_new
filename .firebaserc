@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "annashop-e86ec"
+  },
+  "targets": {
+    "annashop-e86ec": {
+      "hosting": {
+        "AnnaShop": [
+          "annashop-e86ec"
+        ]
+      }
+    }
+  }
+}

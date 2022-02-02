@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "AnnaShop:build:production",
+            "firebaseProject": "annashop-e86ec",
+            "firebaseHostingSite": "annashop-e86ec"
+          }
         }
       }
     }
